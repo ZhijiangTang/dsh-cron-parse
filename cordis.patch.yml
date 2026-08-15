@@ -1,0 +1,5 @@
+# dsh-cron-parse bundle patch: 把插件挂载进 dsh profile 组合。
+# 安装：`dsh plugin --profile <name> add file:./plugins/dsh-cron-parse`
+- insert:
+    - id: cron-parse
+      name: dsh-cron-parse

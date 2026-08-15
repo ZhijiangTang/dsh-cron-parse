@@ -1,0 +1,33 @@
+{
+  "name": "dsh-cron-parse",
+  "version": "0.1.0",
+  "description": "cron 表达式解析 / 人性化 / 下次运行预览工具（DSH 插件，零依赖）",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "cron.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-llm": "^0.1.0-rc.6"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "cron",
+    "schedule"
+  ],
+  "license": "MIT"
+}
