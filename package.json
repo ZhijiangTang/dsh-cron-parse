@@ -29,5 +29,41 @@
     "cron",
     "schedule"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dshWorkshop": {
+    "schema": "omdsh-workshop-package/v1",
+    "type": "plugin",
+    "integration": {
+      "protocol": "harness-profile",
+      "artifact": "cordis.patch.yml"
+    },
+    "install": {
+      "mode": "transactional",
+      "adapter": "profile-bundle",
+      "failurePolicy": "generation-rollback",
+      "touchesCurrentBeforeActivation": false
+    },
+    "lifecycle": {
+      "activation": "restart-profile",
+      "dispose": "supported"
+    },
+    "permissions": [],
+    "compatibility": {
+      "dshVersions": [
+        "0.1.0-rc.6"
+      ]
+    },
+    "capability": {
+      "id": "cron-parse-tool",
+      "kind": "tool",
+      "invocation": "call cron_parse with expression '0 9 * * 1-5'",
+      "expected": "valid=true with description 每周一至五 09:00 and 3 nextRuns on weekdays; '99 99 * * *' returns valid=false with errors"
+    },
+    "evidence": {
+      "install": "docs/WORKSHOP.md",
+      "failureIsolation": "docs/WORKSHOP.md",
+      "hotReload": null,
+      "remove": "docs/WORKSHOP.md"
+    }
+  }
 }
